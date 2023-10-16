@@ -22,31 +22,31 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 					c = (char)va_arg(args, int);
-					_putchar(c);
+					putchar(c);
 					x++;
 					break;
 				case 's':
 					s = va_arg(args, const char *);
 					while (*s != '\0') {
-						_putchar(*s);
+						putchar(*s);
 						s++;
 						x++;
 					}
 					break;
 				case '%':
-					_putchar('%');
+					putchar('%');
 					x++;
 					break;
 				default:
-					_putchar('%');
-					_putchar(*format);
+					putchar('%');
+					putchar(*format);
 					x += 2;
 					break;
 			}
 		}
 		else
 		{
-			_putchar(*format);
+			putchar(*format);
 			x++;
 		}
 		format++;
