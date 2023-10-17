@@ -15,7 +15,8 @@ int _printf(const char *format, ...)
 	function check[] = {
 		{print_bin, "%b"}, {print_cha, "%c"},
 		{print_int, "%d"}, {print_int, "%i"},
-		{print_rot, "%R"}, {print_X, "%X"}, {print_S, "%S"}};
+		{print_rot, "%R"}, {print_X, "%X"},
+		{print_S, "%S"}};
 
 	if (format == NULL || (format[0] == '%' && !format[1]))
 		return (-1);

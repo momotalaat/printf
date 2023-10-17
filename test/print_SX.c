@@ -1,38 +1,35 @@
 #include "main.h"
 
 /**
- * print_SX - a function to print uppercase hexadecimal numbers
- * @a : argument
+ * print_SX - afunction to print uppercase hexadecimal numbers
+ * @a : input argument
  * Return: length
  */
 
 int print_SX(int a)
 {
-	int c_ret = 0;
-	int j;
+    int len = 0, x = 0, y;
+    char HEX_cha[16] = "0123456789ABCDEF";
+    char HEX_str[9];
 
 	if (a == 0)
 	{
 		putchar('0');
-		c_ret++;
+		len++;
 	}
 	else
 	{
-		char hex_chars[16] = "0123456789ABCDEF";
-		char hex_string[9];
-		int i = 0;
-
-		while (a > 0)
+        while (a > 0)
 		{
-			hex_string[i] = hex_chars[a % 16];
+			HEX_str[x] = HEX_cha[a % 16];
 			a /= 16;
-			i++;
+			x++;
 		}
-		for (j = i - 1; j >= 0; j--)
+		for (y = x - 1; y >= 0; y--)
 		{
-			putchar(hex_string[j]);
-			c_ret++;
+			putchar(HEX_str[y]);
+			len++;
 		}
 	}
-	return (c_ret);
+	return (len);
 }
