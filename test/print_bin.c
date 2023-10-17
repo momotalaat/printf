@@ -8,9 +8,9 @@
 
 int print_bin(va_list print_args)
 {
-    unsigned int dec = va_arg(print_args, int);
+	unsigned int dec = va_arg(print_args, int);
 	unsigned int bin[1024];
-    int len = 0, x;
+	int len = 0, x;
 
 	if (!print_args)
 		exit(-1);

@@ -34,7 +34,7 @@ int print_S(va_list print_args)
 			putchar(str[x]);
 			len++;
 		}
-			x++;
+		x++;
 	}
 	return (len);
 }

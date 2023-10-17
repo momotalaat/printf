@@ -29,7 +29,7 @@ int print_rot(va_list print_args)
 			}
 			len++;
 		}
-		 len++;
+		len++;
 	}
 	return (len);
 }

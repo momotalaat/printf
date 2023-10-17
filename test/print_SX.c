@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * SX_pr - a function to print uppercase hexadecimal numbers
+ * print_SX - a function to print uppercase hexadecimal numbers
  * @a : argument
  * Return: length
  */
