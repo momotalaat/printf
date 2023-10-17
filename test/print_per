@@ -1,0 +1,12 @@
+#include "main.h"
+
+/**
+ * print_per - afunction to print percintadge
+ * Return: 1 if success
+ */
+
+int print_per(void)
+{
+	putchar('%');
+    return (1);
+}
