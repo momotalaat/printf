@@ -1,49 +1,49 @@
 #include "main.h"
 
 /**
- * _printf - c prog for printing a formatted string
- * @format: pointer to the format string
- *
- * Discription: a c function that imitates the stdio.h printf fn.
- *
- * Return: characters count in the string
+ * _printf - Custom printf function
+ * @format: The format string
+ * Return: Number of characters printed
  */
 
 int _printf(const char *format, ...)
 {
-	int count_ret = 0;
-	int n = 0, m;
-	va_list pfargs;
-	call_fn check_sp[] = {
-		{bin_pr, "%b"},	{char_pr, "%c"}, {per_pr, "%%"}, {int_pr, "%d"},
-		{int_pr, "%i"}, {str_pr, "%s"}, {rev_pr, "%r"}, {rot13_pr, "%R"},
-		{u_pr, "%u"}, {o_pr, "%o"}, {x_pr, "%x"}, {X_pr, "%X"}, {S_pr, "%S"}};
+	va_start(args, format);
 
-	if (format == NULL || (format[0] == '%' && !format[1]))
-		return (-1);
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
-		return (-1);
-
-	va_start(pfargs, format);
-check:
-	while (format[n] != '\0')
+	for (i = 0; format && format[i]; i++)
 	{
-		m = 12;
-		while (m >= 0)
+		if (format[i] == '%')
 		{
-			if (check_sp[m].sp[0] == format[n] && check_sp[m].sp[1] == format[n + 1])
+			i++;
+			switch (format[i])
 			{
-				count_ret += check_sp[m].fn(pfargs);
-				n = n + 2;
-				goto check;
+				case 'c':
+					c = va_arg(args, int);
+					count += write(1, &c, 1);
+					break;
+				case 's':
+					str_arg = va_arg(args, char *);
+					count += write(1, str_arg, strlen(str_arg));
+					break;
+				case '%':
+					count += write(1, "%", 1);
+					break;
+				case 'D':
+				case 'i':
+					int_arg = va_arg(args, int);
+					sprintf(buffer, "%d", int_arg);
+					count += write(1, buffer, strlen(buffer));
+					break;
+				default:
+					count += write(1, &format[i - 1], 2);
+					break;
 			}
-			m--;
 		}
-		putchar(format[n]);
-		count_ret++;
-		n++;
-
+		else
+		{
+			count += write(1, &format[i], 1);
+		}
 	}
-	va_end(pfargs);
-	return (count_ret);
+	va_end(args);
+	return (count);
 }
