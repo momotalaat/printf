@@ -1,16 +1,16 @@
 #include "main.h"
 
 /**
- * print_X - afunction to print uppercase hexadecimal numbers
+ * print_x - afunction to print lowercase hexadecimal numbers
  * @arg_list : list of arguments
  * Return: length
  */
 
-int print_X(va_list arg_list)
+int print_x(va_list arg_list)
 {
 	unsigned int value = va_arg(arg_list, unsigned int);
 	int len = 0, x, y = 0;
-	char hex_cha[16] = "0123456789ABCDEF";
+	char hex_cha[16] = "0123456789abcdef";
 	char hex_str[9];
 
 	if (value == 0)
