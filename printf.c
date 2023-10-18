@@ -8,6 +8,11 @@
 
 int _printf(const char *format, ...)
 {
+	int count = 0, int_arg, i, c;
+	char *str_arg;
+	char buffer[1024];
+	va_list args;
+
 	va_start(args, format);
 
 	for (i = 0; format && format[i]; i++)
